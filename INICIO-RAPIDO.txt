@@ -1,0 +1,235 @@
+#!/usr/bin/env node
+/**
+ * 🎯 GUÍA RÁPIDA DE INICIO - PROYECTO REORGANIZADO
+ * 
+ * Este archivo te guía paso a paso por la configuración
+ * Puedes leerlo o copiar los comandos
+ */
+
+console.log(`
+╔════════════════════════════════════════════════════════════════╗
+║     🎉 ¡BIENVENIDO! Proyecto Reorganizado - Mayo 2026         ║
+║     Plantilla de Email para Invitaciones a Evento              ║
+╚════════════════════════════════════════════════════════════════╝
+
+📂 NUEVA ESTRUCTURA CREADA:
+   ✅ src/frontend/pages/       - Páginas HTML
+   ✅ src/frontend/scripts/      - Scripts JavaScript
+   ✅ src/backend/               - Servidor Node.js
+   ✅ docs/                      - Documentación
+   ✅ extras/                    - Archivos antiguos
+
+🚀 PRÓXIMOS PASOS:
+
+1️⃣  MOVER ARCHIVOS ANTIGUOS A EXTRAS (5 min)
+   → Lee: ARCHIVO-ARCHIVOS-ANTIGUOS.md
+   → Mueve los .html y .js antiguos
+   → Limpia la raíz del proyecto
+
+2️⃣  CONFIGURAR BACKEND (5 min)
+   → cd src/backend
+   → pnpm install
+   → Crea archivo .env con tus credenciales Gmail
+
+3️⃣  INICIAR SERVIDOR (1 min)
+   → npm start
+   → Deberías ver: "Server is Running on http://localhost:5000"
+
+4️⃣  ABRIR LA APLICACIÓN (1 min)
+   → Abre en navegador: src/frontend/pages/index.html
+   → O accede desde centro de control
+
+5️⃣  PROBAR (5 min)
+   → Ve a Panel Administrativo
+   → Guarda datos del evento
+   → Ve a Enviar Invitaciones
+   → Completa el formulario
+
+═══════════════════════════════════════════════════════════════════
+
+📖 DOCUMENTACIÓN (LEE EN ESTE ORDEN):
+
+1. QUICKSTART.md                    (5 min) - Inicio rápido
+2. INDICE-COMPLETO.md              (10 min) - Visión general
+3. docs/ESTRUCTURA.md              (10 min) - Detalles técnicos
+4. ARCHIVO-ARCHIVOS-ANTIGUOS.md    (5 min) - Limpiar archivos
+
+═══════════════════════════════════════════════════════════════════
+
+⚙️  COMANDOS IMPORTANTES:
+
+# Setup Backend
+cd src/backend
+pnpm install
+
+# Crear .env
+cp .env.example .env
+# Edita con tus credenciales de Gmail
+
+# Iniciar servidor
+npm start
+# O: pnpm start
+
+# Acceder a la aplicación
+# Navegador: src/frontend/pages/index.html
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 OBJETIVOS DE ESTA REORGANIZACIÓN:
+
+✓ Estructura profesional y escalable
+✓ Separación clara Frontend/Backend
+✓ Fácil de mantener y expandir
+✓ Documentación completa
+✓ Funcionalidad 100% preservada
+
+═══════════════════════════════════════════════════════════════════
+
+🔑 VARIABLES DE ENTORNO (.env):
+
+EMAIL_USER=tu-email@gmail.com
+EMAIL_PASS=tu-contraseña-app-gmail
+PORT=5000
+
+⚠️  Usa contraseña de aplicación de Gmail, no tu contraseña normal
+    Obtén en: https://myaccount.google.com/apppasswords
+
+═══════════════════════════════════════════════════════════════════
+
+📊 ARCHIVOS CLAVE:
+
+Frontend:
+  • src/frontend/pages/index.html          - Centro de control
+  • src/frontend/pages/admin.html          - Panel administrativo
+  • src/frontend/pages/send-invitations.html - Envío de mails
+  • src/frontend/pages/contact.html        - Formulario contacto
+
+Backend:
+  • src/backend/server.js                  - API principal
+  • src/backend/package.json               - Dependencias
+  • src/backend/.env                       - Configuración
+
+═══════════════════════════════════════════════════════════════════
+
+✨ ENDPOINTS API:
+
+POST   /api/contact              - Enviar contacto
+POST   /api/event                - Guardar datos evento
+GET    /api/event                - Obtener datos evento
+POST   /api/send-invitation      - Enviar invitación
+
+Base URL: http://localhost:5000/
+
+═══════════════════════════════════════════════════════════════════
+
+🐛 TROUBLESHOOTING RÁPIDO:
+
+Problema: "Cannot find module"
+Solución: cd src/backend && pnpm install
+
+Problema: "Connection refused"
+Solución: Asegúrate que ejecutaste npm start
+
+Problema: "Email no se envía"
+Solución: Verifica credenciales en .env
+
+Problema: "Página en blanco"
+Solución: Abre src/frontend/pages/index.html (ruta completa)
+
+═══════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST DE CONFIGURACIÓN:
+
+☐ Leí QUICKSTART.md
+☐ Moví archivos antiguos a extras/
+☐ Creé .env en src/backend/
+☐ Ejecuté pnpm install en src/backend/
+☐ Ejecuté npm start en src/backend/
+☐ Abrí src/frontend/pages/index.html en navegador
+☐ Probé cada funcionalidad
+☐ Leí la documentación principal
+
+═══════════════════════════════════════════════════════════════════
+
+🎓 ESTRUCTURA VISUAL DEL PROYECTO:
+
+Plantilla-correo/
+│
+├── src/                        ← CÓDIGO NUEVO (Aquí todo funciona)
+│   ├── frontend/pages/         ← Todas las páginas HTML
+│   ├── frontend/scripts/       ← Todos los scripts JS
+│   └── backend/                ← Servidor Node.js
+│
+├── docs/                       ← Documentación técnica
+├── extras/                     ← Archivos antiguos (sin usar)
+│
+├── README.md                   ← Documentación principal
+├── QUICKSTART.md               ← Inicio rápido
+├── INDICE-COMPLETO.md          ← Guía completa
+└── ARCHIVO-ARCHIVOS-ANTIGUOS.md ← Cómo limpiar
+
+═══════════════════════════════════════════════════════════════════
+
+🌟 FUNCIONALIDADES DISPONIBLES:
+
+✓ Centro de control               - Dashboard principal
+✓ Panel administrativo            - Gestiona eventos
+✓ Envío de invitaciones           - Mailing masivo
+✓ Formulario de contacto          - Recibe consultas
+✓ Almacenamiento local            - Backup automático
+✓ Vista previa de emails          - Antes de enviar
+✓ Servidor Express                - API profesional
+✓ Validación de emails            - Formularios seguros
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 PLAN DE ACCIÓN (Sigue esto ahora):
+
+AHORA (5 min):
+1. Abre terminal/PowerShell
+2. cd src/backend
+3. pnpm install
+
+LUEGO (1 min):
+1. Crea .env con tus credenciales
+2. npm start
+
+DESPUÉS (1 min):
+1. Abre navegador
+2. Ve a src/frontend/pages/index.html
+3. ¡Disfruta!
+
+═══════════════════════════════════════════════════════════════════
+
+📞 DOCUMENTACIÓN DISPONIBLE:
+
+• QUICKSTART.md              - Comienza aquí (5 min)
+• README.md                  - Visión general (10 min)
+• INDICE-COMPLETO.md         - Todo en un documento (10 min)
+• docs/ESTRUCTURA.md         - Detalles de carpetas (10 min)
+• docs/MIGRACION.md          - Cambios de rutas (5 min)
+• ARCHIVO-ARCHIVOS-ANTIGUOS.md - Limpiar proyecto (5 min)
+
+═══════════════════════════════════════════════════════════════════
+
+✨ ¡RECOMENDACIÓN FINAL!
+
+Lee este orden para mejor comprensión:
+1. ARCHIVO-ARCHIVOS-ANTIGUOS.md   (Limpia primero)
+2. QUICKSTART.md                   (Intro rápida)
+3. INDICE-COMPLETO.md              (Visión completa)
+4. docs/ESTRUCTURA.md              (Detalles técnicos)
+
+═══════════════════════════════════════════════════════════════════
+
+Hecho: Mayo 2026
+Versión: 1.0.0 Reorganizada
+Estado: ✅ Listo para usar
+
+🎉 ¡Tu proyecto está reorganizado y listo! 🎉
+
+═══════════════════════════════════════════════════════════════════
+`);
+
+// Si ejecutas con node:
+// node INICIO-RAPIDO.txt
