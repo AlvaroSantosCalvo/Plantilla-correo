@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: auto;
+        background-color: #fff;
+      }
+      .red-line {
+        width: 100%;
+        height: 30px;
+        background-color: #c2002f;
+      }
+      .header-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      .section-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        background-color: #c2002f;
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+      }
+      .content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        gap: 20px;
+        padding: 20px 40px;
+      }
+      .content .primary {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .greting {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #c2002f;
+      }
+      .text {
+        margin-bottom: 20px;
+      }
+      .content .images {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .logo {
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .photos {
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+        box-shadow: 10px 10px 0px #c2002f;
+      }
+      .photos:last-child {
+        box-shadow: 10px 10px 0px #000000;
+      }
+
+      .closing {
+        font-size: 16px;
+        font-weight: bold;
+        color: #c2002f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="red-line"></div>
+      <img
+        class="header-img"
+        src="./assets/header-img.png"
+        alt="Header image"
+      />
+      <div class="section-info">
+        <p>${date}</p>
+        <p>${time}</p>
+        <p>${place}</p>
+      </div>
+      <div class="content">
+        <div class="primary">
+          <p class="greting">Estimado/a ${name},</p>
+          <p class="text">
+            Nos complace invitarle a ${event_name}. <br /><br />La jornada, que
+            este año se desarrollará bajo el lema ${event_lemma}, constituye un
+            referente anual en la Universidad Nebrija para la reflexión,
+            formación e investigación en innovación docente, con especial
+            protagonismo de los proyectos desarrollados por el profesorado en el
+            curso ${academic_year}.<br /><br />Contará con la participación de
+            ${speaker1} ${speaker1_association} y ${speaker2}
+            ${speaker2_association}, reconocidos expertos en educación digital e
+            innovación educativa. Puedes inscribirte en ${register_link} hasta
+            el ${register_deadline}.
+          </p>
+          <p class="closing">¡Te esperamos!</p>
+        </div>
+        <div class="images">
+          <img
+            class="logo"
+            src="./assets/logo-nebrija-innova.png"
+            alt="logo Nebrija Innova"
+          />
+          <img
+            class="photos"
+            src="./assets/Carlos_Magro.jpeg"
+            alt="foto orador uno"
+          />
+          <img
+            class="photos"
+            src="./assets/Maribell_Reyes_Millan.jpeg"
+            alt="foto orador dos"
+          />
+          <img
+            class="logo"
+            src="./assets/logo.jpg"
+            alt="logo Universidad Nebrija"
+          />
+        </div>
+      </div>
+      <div class="red-line"></div>
+    </div>
+  </body>
+</html>
