@@ -4,24 +4,30 @@ Un sistema completo para gestionar y enviar invitaciones personalizadas a evento
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto (Reorganizada)
 
 ```
-PlantillaEmail/
-├── admin.html                    # Panel administrativo para gestionar datos del evento
-├── admin-script.js              # Script del panel administrativo
-├── send-invitations.html        # Formulario para enviar invitaciones
-├── send-invitations-script.js   # Script para gestionar envío de invitaciones
-├── formulario.html              # Formulario de contacto general
-├── CONTACT-FORM-BACKEND/        # Backend Node.js/Express
-│   ├── server.js               # Servidor con endpoints
-│   ├── script.js               # Script para formulario de contacto
-│   ├── package.json            # Dependencias
-│   └── pnpm-lock.yaml         # Lock file
-├── EMAIL-TEMPLATE/              # Plantillas de email
-│   ├── email-template.html     # Plantilla base
-│   └── assets/                 # Imágenes y recursos
-└── imgs/                        # Imágenes globales
+src/
+├── frontend/
+│   ├── pages/
+│   │   ├── index.html                    # Centro de control
+│   │   ├── admin.html                    # Panel administrativo
+│   │   ├── send-invitations.html         # Envío de invitaciones
+│   │   └── contact.html                  # Formulario de contacto
+│   └── scripts/
+│       ├── admin.js                      # Scripts del panel
+│       ├── send-invitations.js           # Scripts de invitaciones
+│       └── contact.js                    # Scripts de contacto
+├── backend/
+│   ├── server.js                         # Servidor Express
+│   ├── package.json                      # Dependencias
+│   ├── .env.example                      # Ejemplo de configuración
+│   └── pnpm-lock.yaml                   # Lock file
+└── templates/                            # Plantillas de email (futuro)
+docs/
+├── ESTRUCTURA.md                         # Documentación de estructura
+README.md                                 # Este archivo
+QUICKSTART.md                             # Inicio rápido
 ```
 
 ---
@@ -31,14 +37,14 @@ PlantillaEmail/
 ### 1. **Instalar Dependencias**
 
 ```bash
-cd CONTACT-FORM-BACKEND
+cd src/backend
 pnpm install
 # o npm install
 ```
 
 ### 2. **Configurar Variables de Entorno**
 
-Crear archivo `.env` en `CONTACT-FORM-BACKEND/`:
+Crear archivo `.env` en `src/backend/`:
 
 ```env
 # Gmail Configuration
@@ -52,203 +58,154 @@ PORT=5000
 ### 3. **Iniciar el Servidor**
 
 ```bash
-cd CONTACT-FORM-BACKEND
+npm start
+# O con pnpm
 pnpm start
-# o npm start
 ```
 
-El servidor estará disponible en `http://localhost:5000`
+Debería ver: `Server is Running on http://localhost:5000`
 
 ---
 
-## 📖 Cómo Usar
+## 📋 Flujo de Uso
 
-### **Paso 1: Acceder al Panel Administrativo**
+### Primera vez:
+1. **Abre** `src/frontend/pages/index.html` en el navegador
+2. **Ve a** "Panel Administrativo" → completa datos del evento → guarda
+3. **Ve a** "Enviar Invitaciones" → agrega personas → envía
 
-Abre `admin.html` en tu navegador:
-- Completa los datos del evento:
-  - **Información General:** Nombre, edición/año, descripción
-  - **Fecha y Hora:** Fecha, hora de inicio, duración
-  - **Ubicación:** Lugar, ciudad, país, dirección
-  - **Enlaces:** Links de registro y streaming
-  - **Contacto:** Email y teléfono
-  - **Speakers:** Agrega conferencistas con su nombre y cargo
-
-Haz clic en **"💾 Guardar Datos del Evento"** para guardar (se almacena localmente y en el servidor si está disponible).
-
-### **Paso 2: Enviar Invitaciones**
-
-Abre `send-invitations.html` en tu navegador:
-
-1. **Verifica el Resumen del Evento:** Los datos guardados aparecerán automáticamente
-2. **Personaliza el Mensaje:**
-   - Modifica el **Asunto** del email
-   - Escribe un **Mensaje Personalizado** (opcional)
-3. **Agrega Destinatarios:**
-   - Ingresa nombre y email
-   - Haz clic en **"+ Agregar Destinatario"**
-4. **Vista Previa:** Haz clic en **"👁️ Vista Previa"** para ver cómo se vería el email
-5. **Envía:** Haz clic en **"📨 Enviar Invitaciones"**
+### Siguientes veces:
+1. Los datos se recuerdan automáticamente
+2. Solo agrega nuevas personas y envía
 
 ---
 
-## 🔧 Endpoints de la API
+## 🔗 Endpoints de API
 
-### **POST /api/event**
-Guardar o actualizar datos del evento.
-
+### `POST /api/contact`
+**Descripción:** Procesa formularios de contacto
 **Body:**
 ```json
 {
-  "eventName": "Summit 2026",
-  "eventEdition": "2026",
-  "eventDate": "2026-05-28",
-  "eventTime": "09:00",
-  "venue": "Centro de Convenciones",
-  "city": "La Paz",
-  "country": "Bolivia",
-  "contactEmail": "contacto@evento.com",
-  "speakers": [
-    { "name": "Juan Pérez", "title": "CEO" }
-  ]
+  "name": "Juan",
+  "email": "juan@ejemplo.com",
+  "phone": "+1234567890",
+  "subject": "Consulta",
+  "message": "Mensaje..."
 }
 ```
 
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Event data saved successfully",
-  "event": { ... }
-}
-```
+### `POST /api/event`
+**Descripción:** Guarda/actualiza datos del evento
+**Body:** Objeto con datos del evento (nombre, fecha, ubicación, speakers, etc.)
 
----
+### `GET /api/event`
+**Descripción:** Obtiene los datos guardados del evento
 
-### **GET /api/event**
-Obtener datos del evento guardado.
-
-**Response:**
-```json
-{
-  "eventName": "Summit 2026",
-  "eventEdition": "2026",
-  ...
-}
-```
-
----
-
-### **POST /api/send-invitation**
-Enviar invitación personalizada.
-
+### `POST /api/send-invitation`
+**Descripción:** Envía invitación personalizada
 **Body:**
 ```json
 {
-  "recipientName": "María López",
+  "recipientName": "María",
   "recipientEmail": "maria@ejemplo.com",
-  "subject": "¡Te invitamos al Summit 2026!",
-  "message": "Mensaje personalizado aquí",
-  "eventData": { ... }
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Invitation sent to maria@ejemplo.com"
+  "subject": "¡Invitación!",
+  "message": "Mensaje personalizado...",
+  "eventData": { /* datos del evento */ }
 }
 ```
 
 ---
 
-## 💾 Almacenamiento de Datos
+## 📊 Campos del Evento
 
-- **LocalStorage:** Los datos se guardan en el navegador del cliente (persiste entre sesiones)
-- **Servidor:** Opcional. Si el servidor está disponible, también se guardan en el backend
-- **Email:** Se envía a través de Nodemailer + Gmail
-
----
-
-## 🎨 Personalización
-
-### **Cambiar Colores**
-
-El color principal es `#c2002f` (rojo). Para cambiar:
-
-1. **En admin.html:** Busca `.header { background: linear-gradient(...)`
-2. **En send-invitations.html:** Busca `.header { background: linear-gradient(...)`
-3. **En send-invitations-script.js:** Busca `color: #c2002f`
-
-Reemplaza con tu color preferido.
-
-### **Modificar Campos del Evento**
-
-En `admin.html`, agrega nuevos campos dentro de `<div class="form-section">`:
-
-```html
-<label for="newField">Mi Campo</label>
-<input type="text" id="newField" name="newField" placeholder="...">
-```
-
-Luego en `admin-script.js`, agrega en la función `collectSpeakers()`:
-
-```javascript
-eventData.newField = document.getElementById('newField').value;
-```
+- 📅 **Fecha y hora**
+- 📍 **Lugar** (venue, ciudad, país)
+- 🔗 **Links** (registro, zoom)
+- 🎤 **Speakers** (conferencistas)
+- 📧 **Email de contacto**
+- 💬 **Descripción**
 
 ---
 
-## 🐛 Solución de Problemas
+## 🎯 Próximos Pasos
 
-### **"No hay datos de evento"**
-- Asegúrate de haber guardado los datos en `admin.html` primero
-- Limpia el caché del navegador y actualiza
+1. ✅ Verifica que el servidor Node.js esté corriendo
+2. ✅ Configura el archivo `.env` con tus credenciales de Gmail
+3. ✅ Guarda los datos de tu evento en el Panel Administrativo
+4. ✅ Agrega destinatarios y envía invitaciones
+5. ✅ Verifica la vista previa antes de enviar
 
-### **"Error al enviar emails"**
-- Verifica que el servidor está corriendo: `http://localhost:5000`
-- Comprueba las credenciales de Gmail en `.env`
-- Asegúrate que la contraseña de aplicación de Gmail es correcta
-- El servidor debe estar corriendo: `pnpm start`
+---
 
-### **"El servidor no está disponible"**
-- Inicia el servidor: `cd CONTACT-FORM-BACKEND && pnpm start`
-- Los datos se guardarán localmente si el servidor no está disponible
+## ⚙️ Tecnologías Utilizadas
 
-### **Emails no llegan**
-- Revisa carpeta de Spam/Correo no deseado
-- Verifica el email de destino
-- Comprueba los logs del servidor para errores
+- **Frontend:**
+  - HTML5
+  - CSS3 (Responsive)
+  - Vanilla JavaScript
+  - LocalStorage para persistencia
+
+- **Backend:**
+  - Node.js
+  - Express.js
+  - Nodemailer (para envío de emails)
+  - CORS (para desarrollo local)
+  - Body Parser (para JSON)
 
 ---
 
 ## 📝 Notas Importantes
 
-1. **Seguridad:** 
-   - No commits `.env` con credenciales reales a repositorios públicos
-   - Usa contraseñas de aplicación, no contraseñas de cuenta
-   - En producción, usa una base de datos en lugar de almacenamiento en memoria
-
-2. **Límites:**
-   - Por defecto, se pueden enviar invitaciones a múltiples personas
-   - Gmail tiene límites de envío (~500 emails/día)
-   - Para proyectos grandes, considera usar servicios como SendGrid
-
-3. **Base de Datos:**
-   - Actualmente se usa almacenamiento en memoria en el servidor
-   - Para persistencia, implementa MongoDB, PostgreSQL, etc.
+- Los datos del evento se guardan en **memoria del servidor** (resetearse al reiniciar)
+- Backup automático en **localStorage** del navegador
+- En producción, implementar base de datos real
+- CORS habilitado para desarrollo local
+- Se requiere Gmail con contraseña de aplicación específica
 
 ---
 
-## 📞 Soporte
+## 🐛 Solución de Problemas
 
-Si tienes problemas:
-1. Revisa la consola del navegador (F12 → Console)
-2. Revisa los logs del servidor (terminal donde corre Node)
-3. Verifica que todos los puertos están disponibles
-4. Intenta reiniciar el servidor
+### "Server not responding"
+- Verifica que ejecutaste `npm start` en `src/backend/`
+- Comprueba que el puerto 5000 está disponible
+
+### "Email no se envía"
+- Verifica credenciales de Gmail en `.env`
+- Usa contraseña de aplicación, no la contraseña normal
+- Habilita [acceso a aplicaciones menos seguras](https://myaccount.google.com/lesssecureapps)
+
+### "Datos no se guardan"
+- Abre la consola del navegador (F12) para ver errores
+- Verifica que el servidor está corriendo
 
 ---
 
-**¡Listo!** Ahora puedes gestionar y enviar invitaciones a tu evento anual. 🎉
+## 📦 Archivos Adicionales
+
+En la carpeta `extras/` encontrarás:
+- Archivos de versiones anteriores
+- Plantillas de referencia
+- Archivos de prueba
+- Documentación histórica
+
+---
+
+## 📄 Licencia
+
+ISC
+
+---
+
+## ✨ ¿Necesitas Ayuda?
+
+Consulta los archivos de documentación:
+- [QUICKSTART.md](QUICKSTART.md) - Inicio rápido
+- [docs/ESTRUCTURA.md](docs/ESTRUCTURA.md) - Estructura del proyecto
+- [SETUP-CHECKLIST.md](SETUP-CHECKLIST.md) - Lista de verificación
+
+---
+
+**Última actualización:** Mayo 2026
+**Versión:** 1.0.0
