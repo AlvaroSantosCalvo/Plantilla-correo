@@ -180,13 +180,13 @@
         <div id="message" class="message"></div>
 
         <div class="status-box">
-            ℹ️ Se enviará una invitación de prueba a <strong>alvar300bs@gmail.com</strong>
+            ℹ️ Se enviará una invitación de prueba con la <strong>nueva plantilla</strong> a <strong>alvar300bs@gmail.com</strong>. Los datos corresponden a Nebrija Innova 2026.
         </div>
 
         <div class="details">
             <div class="detail-row">
-                <span class="detail-label">Tipo de Evento:</span>
-                <span class="detail-value">Prueba</span>
+                <span class="detail-label">Evento:</span>
+                <span class="detail-value">Nebrija Innova III</span>
             </div>
             <div class="detail-row">
                 <span class="detail-label">Destinatario:</span>
@@ -195,6 +195,14 @@
             <div class="detail-row">
                 <span class="detail-label">Email:</span>
                 <span class="detail-value">alvar300bs@gmail.com</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Fecha:</span>
+                <span class="detail-value">12 de junio 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Ubicación:</span>
+                <span class="detail-value">Madrid, España</span>
             </div>
         </div>
 
@@ -219,31 +227,29 @@
 
             // Datos del evento de prueba
             const testEventData = {
-                eventName: "Evento de Prueba",
-                eventEdition: "2026",
-                eventDescription: "Este es un email de prueba del sistema de invitaciones.",
-                eventDate: "2026-06-15",
-                eventTime: "10:00",
-                eventDuration: "120",
+                eventName: "III Jornada Internacional de Investigación y Formación en Innovación Docente",
+                eventEdition: "III",
+                eventLemma: "La innovación como ecosistema: del aula a la sociedad",
+                academicYear: "2025-2026",
+                eventDescription: "Evento anual de la Universidad Nebrija dedicado a la reflexión, formación e investigación en innovación docente.",
+                eventDate: "2026-06-12",
+                eventTime: "08:30",
+                eventDuration: "360",
                 registrationDeadline: "2026-06-10",
-                venue: "Centro de Convenciones Prueba",
-                city: "La Paz",
-                country: "Bolivia",
-                address: "Calle Principal 123",
-                registrationLink: "https://ejemplo.com/registro",
-                zoomLink: "https://zoom.us/j/ejemplo",
-                contactEmail: "prueba@evento.com",
-                contactPhone: "+1 234 567 8900",
-                speakers: [
-                    {
-                        name: "Conferencista Prueba",
-                        title: "Especialista en Tecnología"
-                    },
-                    {
-                        name: "Orador Invitado",
-                        title: "Director General"
-                    }
-                ]
+                venue: "Campus de Lenguas y Educación en Madrid-Arturo Soria",
+                city: "Madrid",
+                country: "España",
+                address: "c/ Asura, 90",
+                registrationLink: "https://ejemplo.com/registro-nebrija-innova",
+                zoomLink: "https://zoom.us/j/ejemplo-nebrija",
+                contactEmail: "innova@nebrija.es",
+                contactPhone: "+34 91 452 11 00",
+                speaker1Name: "Carlos Magro",
+                speaker1Association: "Asociación Educación Abierta",
+                speaker1Photo: "https://ejemplo.com/carlos-magro.jpg",
+                speaker2Name: "Maribell Reyes Millán",
+                speaker2Association: "Tecnológico de Monterrey",
+                speaker2Photo: "https://ejemplo.com/maribell-reyes.jpg"
             };
 
             try {
@@ -256,8 +262,8 @@
                     body: JSON.stringify({
                         recipientName: "Prueba Usuario",
                         recipientEmail: "alvar300bs@gmail.com",
-                        subject: "✅ Prueba del Sistema - Email de Invitación",
-                        message: "Este es un email de prueba para verificar que el sistema de invitaciones está funcionando correctamente.",
+                        subject: "¡Estamos felices de invitarte a Nebrija Innova III!",
+                        message: "Esta es una prueba de la nueva plantilla de invitaciones. Verifica que el diseño se vea correctamente con el lema, año académico y datos de los oradores.",
                         eventData: testEventData
                     })
                 });

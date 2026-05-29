@@ -196,22 +196,22 @@
       <div class="section-info">
         <div class="info-item">
           <span class="info-icon">📅</span>
-          <span>${date}</span>
+          <span>{{date}}</span>
         </div>
         <div class="info-item">
           <span class="info-icon">🕐</span>
-          <span>${time}</span>
+          <span>{{time}}</span>
         </div>
         <div class="info-item">
           <span class="info-icon">📍</span>
-          <span>${place}</span>
+          <span>{{place}}</span>
         </div>
       </div>
 
       <div class="content">
         <div class="primary">
           <div class="greeting-section">
-            <div class="greeting">Estimado/a ${name},</div>
+            <div class="greeting">Estimado/a {{name}},</div>
             <div class="logo-innova">
               <img
                 src="./assets/logo-nebrija-innova.png"
@@ -223,25 +223,25 @@
           <div class="text-section">
             <p>
               Nos complace invitarle a la
-              <span class="bold-text">${event_name}</span>.
+              <span class="bold-text">{{event_name}}</span>.
             </p>
             <p>
               La jornada, que este año se desarrollará bajo el lema
-              <span class="italic-text">«${event_lemma}»</span>, constituye un
+              <span class="italic-text">«{{event_lemma}}»</span>, constituye un
               referente anual en la Universidad Nebrija para la reflexión,
               formación e investigación en innovación docente, con especial
               protagonismo de los proyectos desarrollados por el profesorado en
-              el curso <span class="bold-text">${academic_year}</span>.
+              el curso <span class="bold-text">{{academic_year}}</span>.
             </p>
             <p>
               Contará con la participación de
-              <span class="bold-text">${speaker1}</span>
-              <span class="bold-text">(${speaker1_association})</span> y
-              <span class="bold-text">${speaker2}</span>
-              <span class="bold-text">(${speaker2_association})</span>,
+              <span class="bold-text">{{speaker1}}</span>
+              <span class="bold-text">({{speaker1_association}})</span> y
+              <span class="bold-text">{{speaker2}}</span>
+              <span class="bold-text">({{speaker2_association}})</span>,
               reconocidos expertos en educación digital e innovación educativa.
-              Puedes inscribirte en <span class="bold-text">${register_link}</span> hasta el
-              <span class="bold-text">${register_deadline}</span>.
+              Puedes inscribirte en <span class="bold-text">{{register_link}}</span> hasta el
+              <span class="bold-text">{{register_deadline}}</span>.
             </p>
           </div>
 
@@ -251,13 +251,13 @@
         <div class="sidebar">
           <div class="photo-container speaker1">
             <img
-              src="./assets/Carlos_Magro.jpeg"
+              src="./assets/speaker1_photo.jpg"
               alt="foto orador"
             />
           </div>
           <div class="photo-container speaker2">
             <img
-              src="./assets/Maribell_Reyes_Millan.jpeg"
+              src="./assets/speaker2_photo.jpg"
               alt="foto orador"
             />
           </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel Administrativo - Evento</title>
+    <link rel="stylesheet" href="../styles/navbar.css">
     <style>
         * {
             margin: 0;
@@ -256,6 +257,19 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">Nebrija Innova</a>
+            <button id="navbarToggle" class="navbar-toggle">☰</button>
+            <ul id="navbarMenu" class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Inicio</a></li>
+                <li class="navbar-item"><a href="admin.html" class="navbar-link">Panel Admin</a></li>
+                <li class="navbar-item"><a href="send-invitations.html" class="navbar-link">Enviar Invitaciones</a></li>
+                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contacto</a></li>
+                <li class="navbar-item"><a href="../test-email.html" class="navbar-link">Test Email</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="header">
             <h1>📅 Panel Administrativo</h1>
@@ -276,17 +290,27 @@
                 <div class="form-group">
                     <div>
                         <label for="eventName">Nombre del Evento *</label>
-                        <input type="text" id="eventName" name="eventName" placeholder="Ej: Summit 2026" required>
+                        <input type="text" id="eventName" name="eventName" placeholder="Ej: III Jornada Internacional" required>
                     </div>
                     <div>
                         <label for="eventEdition">Edición/Año *</label>
-                        <input type="text" id="eventEdition" name="eventEdition" placeholder="Ej: 2026" required>
+                        <input type="text" id="eventEdition" name="eventEdition" placeholder="Ej: III" required>
                     </div>
                 </div>
 
                 <div class="form-group full">
-                    <label for="eventDescription">Descripción del Evento</label>
-                    <textarea id="eventDescription" name="eventDescription" placeholder="Describe brevemente el evento..."></textarea>
+                    <label for="eventLemma">Lema del Evento *</label>
+                    <input type="text" id="eventLemma" name="eventLemma" placeholder="Ej: La innovación como ecosistema: del aula a la sociedad" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="academicYear">Año Académico *</label>
+                    <input type="text" id="academicYear" name="academicYear" placeholder="Ej: 2025-2026" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="eventDescription">Descripción Adicional del Evento</label>
+                    <textarea id="eventDescription" name="eventDescription" placeholder="Información adicional sobre el evento..."></textarea>
                 </div>
 
                 <!-- Detalles de Fecha y Hora -->
@@ -349,10 +373,10 @@
                     <input type="url" id="registrationLink" name="registrationLink" placeholder="https://ejemplo.com/registro">
                 </div>
 
-                <div class="form-group full">
+                <!-- <div class="form-group full">
                     <label for="zoomLink">Link de Zoom/Streaming (si aplica)</label>
                     <input type="url" id="zoomLink" name="zoomLink" placeholder="https://zoom.us/...">
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <div>
@@ -369,8 +393,37 @@
                 <div class="divider"></div>
                 <h3>🎤 Oradores/Conferencistas</h3>
 
-                <div id="speakersContainer" class="speakers-container"></div>
-                <button type="button" class="add-speaker-btn" id="addSpeakerBtn">+ Agregar Orador</button>
+                <div class="form-group full">
+                    <label for="speaker1Name">Nombre del Primer Orador/a *</label>
+                    <input type="text" id="speaker1Name" name="speaker1Name" placeholder="Ej: Carlos Magro" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="speaker1Association">Asociación/Institución del Primer Orador/a *</label>
+                    <input type="text" id="speaker1Association" name="speaker1Association" placeholder="Ej: Asociación Educación Abierta" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="speaker1Photo">Foto del Primer Orador/a (URL)</label>
+                    <input type="url" id="speaker1Photo" name="speaker1Photo" placeholder="https://ejemplo.com/foto1.jpg">
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="form-group full">
+                    <label for="speaker2Name">Nombre del Segundo Orador/a *</label>
+                    <input type="text" id="speaker2Name" name="speaker2Name" placeholder="Ej: Maribell Reyes Millán" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="speaker2Association">Asociación/Institución del Segundo Orador/a *</label>
+                    <input type="text" id="speaker2Association" name="speaker2Association" placeholder="Ej: Tecnológico de Monterrey" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="speaker2Photo">Foto del Segundo Orador/a (URL)</label>
+                    <input type="url" id="speaker2Photo" name="speaker2Photo" placeholder="https://ejemplo.com/foto2.jpg">
+                </div>
 
                 <!-- Botones de Acción -->
                 <div class="button-group">
@@ -382,5 +435,6 @@
     </div>
 
     <script src="../scripts/admin.js"></script>
+    <script src="../scripts/navbar.js"></script>
 </body>
 </html>

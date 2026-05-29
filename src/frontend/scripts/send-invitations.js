@@ -198,82 +198,81 @@ function generateEmailHtml(name, subject, personalMessage) {
         minute: '2-digit'
     });
 
-    let speakersHtml = '';
-    if (eventData.speakers && eventData.speakers.length > 0) {
-        speakersHtml = `
-            <div style="margin: 20px 0;">
-                <h3 style="color: #c2002f; margin-bottom: 10px;">🎤 Conferencistas</h3>
-                ${eventData.speakers.map(s => `
-                    <div style="margin-bottom: 10px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
-                        <strong>${s.name}</strong><br>
-                        <small style="color: #666;">${s.title}</small>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    }
+    const place = `${eventData.venue}, ${eventData.city}${eventData.country ? `, ${eventData.country}` : ''}`;
 
     return `
-        <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
-            <div style="background: #c2002f; color: white; padding: 20px; border-radius: 4px 4px 0 0;">
-                <h2 style="margin: 0; font-size: 24px;">¡${eventData.eventName} ${eventData.eventEdition}}!</h2>
-            </div>
-            
-            <div style="padding: 30px; background: #f9f9f9;">
-                <h3 style="color: #333; margin-top: 0;">Hola ${name},</h3>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color: #f7f7f7; color: #333;">
+            <div style="max-width: 600px; margin: auto; background-color: #fff;">
+                <div style="width: 100%; height: 20px; background-color: #c2002f;"></div>
                 
-                <p style="font-size: 16px; margin: 20px 0;">
-                    Nos complace cordialmente invitarte a participar en nuestro evento anual.
-                </p>
-                
-                <div style="background: white; border-left: 4px solid #c2002f; padding: 20px; margin: 20px 0; border-radius: 4px;">
-                    <h4 style="color: #c2002f; margin-top: 0;">📋 Detalles del Evento</h4>
-                    
-                    <div style="margin: 10px 0;">
-                        <strong>Nombre:</strong> ${eventData.eventName}
+                <div style="display: flex; justify-content: space-around; align-items: center; background-color: #c2002f; color: #fff; padding: 15px 20px; font-size: 13px; font-weight: 500;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span>📅</span>
+                        <span>${dateFormatted}</span>
                     </div>
-                    
-                    <div style="margin: 10px 0;">
-                        <strong>📅 Fecha:</strong> ${dateFormatted}
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span>🕐</span>
+                        <span>${timeFormatted}</span>
                     </div>
-                    
-                    <div style="margin: 10px 0;">
-                        <strong>⏰ Hora:</strong> ${timeFormatted}
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span>📍</span>
+                        <span>${place}</span>
                     </div>
-                    
-                    <div style="margin: 10px 0;">
-                        <strong>📍 Lugar:</strong> ${eventData.venue}, ${eventData.city}${eventData.country ? `, ${eventData.country}` : ''}
-                    </div>
-                    
-                    ${eventData.eventDescription ? `
-                    <div style="margin: 10px 0;">
-                        <strong>Descripción:</strong> ${eventData.eventDescription}
-                    </div>
-                    ` : ''}
-                    
-                    ${eventData.registrationLink ? `
-                    <div style="margin: 20px 0;">
-                        <a href="${eventData.registrationLink}" style="background: #c2002f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block;">
-                            Registrate Aquí
-                        </a>
-                    </div>
-                    ` : ''}
                 </div>
-                
-                ${speakersHtml}
-                
-                ${personalMessage ? `
-                <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 4px;">
-                    <strong>📝 Mensaje:</strong><br>
-                    ${personalMessage.replace(/\n/g, '<br>')}
+
+                <div style="display: flex; padding: 30px 40px; gap: 30px;">
+                    <div style="flex: 1; font-size: 15px; line-height: 1.6;">
+                        <div style="margin-bottom: 20px;">
+                            <div style="font-size: 20px; font-weight: bold; color: #c2002f; margin-bottom: 5px;">Estimado/a ${name},</div>
+                            <div style="margin-top: 10px; margin-bottom: 20px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 50'%3E%3Ctext y='35' font-size='20' font-weight='bold' fill='%23c2002f'%3ENebrijaInnova%3C/text%3E%3C/svg%3E" alt="logo Nebrija Innova" style="width: 140px; height: auto;">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <p style="margin-bottom: 15px;">
+                                Nos complace invitarle a la
+                                <span style="font-weight: 600;">${eventData.eventName}</span>.
+                            </p>
+                            <p style="margin-bottom: 15px;">
+                                La jornada, que este año se desarrollará bajo el lema
+                                <span style="font-style: italic;">«${eventData.eventLemma || eventData.eventDescription}»</span>, constituye un
+                                referente anual en la Universidad Nebrija para la reflexión,
+                                formación e investigación en innovación docente, con especial
+                                protagonismo de los proyectos desarrollados por el profesorado en
+                                el curso <span style="font-weight: 600;">${eventData.academicYear}</span>.
+                            </p>
+                            <p style="margin-bottom: 15px;">
+                                Contará con la participación de
+                                <span style="font-weight: 600;">${eventData.speaker1Name}</span>
+                                <span style="font-weight: 600;">(${eventData.speaker1Association})</span> y
+                                <span style="font-weight: 600;">${eventData.speaker2Name}</span>
+                                <span style="font-weight: 600;">(${eventData.speaker2Association})</span>,
+                                reconocidos expertos en educación digital e innovación educativa.
+                                Puedes inscribirte en <span style="font-weight: 600;"><a href="${eventData.registrationLink}" style="color: #c2002f; text-decoration: none;">este enlace</a></span> hasta el
+                                <span style="font-weight: 600;">${eventData.registrationDeadline ? new Date(eventData.registrationDeadline).toLocaleDateString('es-ES') : ''}</span>.
+                            </p>
+                        </div>
+
+                        <p style="font-size: 16px; font-weight: bold; color: #c2002f; margin-top: 15px;">¡Te esperamos!</p>
+                    </div>
+
+                    <div style="width: 160px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="width: 160px; height: 200px; border: 8px solid #c2002f; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999;">
+                            Foto 1
+                        </div>
+                        <div style="width: 160px; height: 200px; background: linear-gradient(135deg, #d8a5e0 0%, #c97dd8 100%); border: 8px solid #000; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff;">
+                            Foto 2
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 10px;">
+                            <div style="width: 120px; height: auto; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #999; padding: 10px;">
+                                Logo
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                ` : ''}
-                
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-                    <p>Esperamos tu participación en este importante evento.</p>
-                    <p>Si tienes preguntas, no dudes en contactarnos a <strong>${eventData.contactEmail}</strong></p>
-                    ${eventData.contactPhone ? `<p>Teléfono: ${eventData.contactPhone}</p>` : ''}
-                </div>
+
+                <div style="width: 100%; height: 20px; background-color: #c2002f;"></div>
             </div>
         </div>
     `;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enviar Invitaciones - Evento</title>
+    <link rel="stylesheet" href="../styles/navbar.css">
     <style>
         * {
             margin: 0;
@@ -401,6 +402,19 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">Nebrija Innova</a>
+            <button id="navbarToggle" class="navbar-toggle">☰</button>
+            <ul id="navbarMenu" class="navbar-menu">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Inicio</a></li>
+                <li class="navbar-item"><a href="admin.html" class="navbar-link">Panel Admin</a></li>
+                <li class="navbar-item"><a href="send-invitations.html" class="navbar-link">Enviar Invitaciones</a></li>
+                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contacto</a></li>
+                <li class="navbar-item"><a href="../test-email.html" class="navbar-link">Test Email</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="header">
             <h1>📧 Enviar Invitaciones</h1>
@@ -486,5 +500,6 @@
     </div>
 
     <script src="../scripts/send-invitations.js"></script>
+    <script src="../scripts/navbar.js"></script>
 </body>
 </html>
