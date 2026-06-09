@@ -14,17 +14,24 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #b6b2b9 100%);
             min-height: 100vh;
             padding: 40px 20px;
+            padding-top: 110px;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
         .header {
+            background: linear-gradient(135deg, #c2002f 0%, #a00026 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
             color: white;
             margin-bottom: 60px;
@@ -273,8 +280,7 @@
                 <li class="navbar-item"><a href="index.html" class="navbar-link">Inicio</a></li>
                 <li class="navbar-item"><a href="admin.html" class="navbar-link">Panel Admin</a></li>
                 <li class="navbar-item"><a href="send-invitations.html" class="navbar-link">Enviar Invitaciones</a></li>
-                <li class="navbar-item"><a href="contact.html" class="navbar-link">Contacto</a></li>
-                <li class="navbar-item"><a href="../test-email.html" class="navbar-link">Test Email</a></li>
+                <li class="navbar-item"><a href="../../../test-email.html" class="navbar-link">Test Email</a></li>
             </ul>
         </div>
     </nav>
@@ -314,15 +320,7 @@
                 <a href="send-invitations.html" class="card-button">✉️ Enviar Invitaciones</a>
             </div>
 
-            <!-- Card 3: Formulario de Contacto -->
-            <div class="card">
-                <div>
-                    <span class="card-icon">💬</span>
-                    <h2>Formulario de Contacto</h2>
-                    <p>Formulario general para recibir consultas de visitantes. Los mensajes se envían a tu email configurado.</p>
-                </div>
-                <a href="contact.html" class="card-button">📞 Ver Formulario</a>
-            </div>
+
         </div>
 
         <div class="status-box">
@@ -361,28 +359,15 @@
                     <span class="status-value" id="storageInfo">Disponible</span>
                 </div>
             </div>
-        </div>
-
-        <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
-            <h3 style="color: #333; margin-bottom: 20px;">🚀 Próximos Pasos</h3>
-
-            <ol style="color: #555; line-height: 2; margin-left: 20px;">
-                <li>Verifica que tu servidor Node.js está corriendo</li>
-                <li>Configura el archivo <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">.env</code> con tus credenciales de Gmail</li>
-                <li>Guarda los datos de tu evento en el Panel Administrativo</li>
-                <li>Agrega destinatarios y envía invitaciones</li>
-                <li>Verifica la vista previa antes de enviar</li>
-            </ol>
-        </div>
-
-        <div class="footer">
+        </div>        
+    </div>
+    <div class="footer">
             <p>Sistema de Invitaciones a Evento Anual v1.0</p>
             <div class="quick-links">
                 <a href="../../README.md">📖 Documentación Completa</a>
                 <a href="../../QUICKSTART.md">⚡ Inicio Rápido</a>
             </div>
         </div>
-    </div>
 
     <script>
         // Verificar estado del sistema

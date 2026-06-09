@@ -33,8 +33,6 @@ async function handleFormSubmit(e) {
         address: document.getElementById('address').value.trim(),
         registrationLink: document.getElementById('registrationLink').value.trim(),
         zoomLink: document.getElementById('zoomLink').value.trim(),
-        contactEmail: document.getElementById('contactEmail').value.trim(),
-        contactPhone: document.getElementById('contactPhone').value.trim(),
         speaker1Name: document.getElementById('speaker1Name').value.trim(),
         speaker1Association: document.getElementById('speaker1Association').value.trim(),
         speaker1Photo: document.getElementById('speaker1Photo').value.trim(),
@@ -47,7 +45,7 @@ async function handleFormSubmit(e) {
     // Validar campos obligatorios
     if (!eventData.eventName || !eventData.eventLemma || !eventData.academicYear || 
         !eventData.eventDate || !eventData.eventTime || !eventData.venue || 
-        !eventData.city || !eventData.contactEmail ||
+        !eventData.city ||
         !eventData.speaker1Name || !eventData.speaker1Association ||
         !eventData.speaker2Name || !eventData.speaker2Association) {
         showMessage('Por favor completa todos los campos obligatorios (*)', 'error');
@@ -106,9 +104,7 @@ function populateForm(data) {
     document.getElementById('country').value = data.country || '';
     document.getElementById('address').value = data.address || '';
     document.getElementById('registrationLink').value = data.registrationLink || '';
-    document.getElementById('zoomLink').value = data.zoomLink || '';
-    document.getElementById('contactEmail').value = data.contactEmail || '';
-    document.getElementById('contactPhone').value = data.contactPhone || '';
+    /* document.getElementById('zoomLink').value = data.zoomLink || ''; */
     
     // Poblar speakers
     document.getElementById('speaker1Name').value = data.speaker1Name || '';

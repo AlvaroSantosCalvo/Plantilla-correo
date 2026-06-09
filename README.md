@@ -12,12 +12,10 @@ src/
 │   ├── pages/
 │   │   ├── index.html                    # Centro de control
 │   │   ├── admin.html                    # Panel administrativo
-│   │   ├── send-invitations.html         # Envío de invitaciones
-│   │   └── contact.html                  # Formulario de contacto
+│   │   └── send-invitations.html         # Envío de invitaciones
 │   └── scripts/
 │       ├── admin.js                      # Scripts del panel
 │       ├── send-invitations.js           # Scripts de invitaciones
-│       └── contact.js                    # Scripts de contacto
 ├── backend/
 │   ├── server.js                         # Servidor Express
 │   ├── package.json                      # Dependencias
@@ -82,19 +80,6 @@ Debería ver: `Server is Running on http://localhost:5000`
 
 ## 🔗 Endpoints de API
 
-### `POST /api/contact`
-**Descripción:** Procesa formularios de contacto
-**Body:**
-```json
-{
-  "name": "Juan",
-  "email": "juan@ejemplo.com",
-  "phone": "+1234567890",
-  "subject": "Consulta",
-  "message": "Mensaje..."
-}
-```
-
 ### `POST /api/event`
 **Descripción:** Guarda/actualiza datos del evento
 **Body:** Objeto con datos del evento (nombre, fecha, ubicación, speakers, etc.)
@@ -123,8 +108,7 @@ Debería ver: `Server is Running on http://localhost:5000`
 - 📍 **Lugar** (venue, ciudad, país)
 - 🔗 **Links** (registro, zoom)
 - 🎤 **Speakers** (conferencistas)
-- 📧 **Email de contacto**
-- 💬 **Descripción**
+-  **Descripción**
 
 ---
 
