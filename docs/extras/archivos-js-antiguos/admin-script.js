@@ -64,7 +64,6 @@ async function handleFormSubmit(e) {
         country: document.getElementById('country').value.trim(),
         address: document.getElementById('address').value.trim(),
         registrationLink: document.getElementById('registrationLink').value.trim(),
-        zoomLink: document.getElementById('zoomLink').value.trim(),
         contactEmail: document.getElementById('contactEmail').value.trim(),
         contactPhone: document.getElementById('contactPhone').value.trim(),
         speakers: collectSpeakers(),
@@ -147,7 +146,6 @@ function populateForm(data) {
     document.getElementById('country').value = data.country || '';
     document.getElementById('address').value = data.address || '';
     document.getElementById('registrationLink').value = data.registrationLink || '';
-    document.getElementById('zoomLink').value = data.zoomLink || '';
     document.getElementById('contactEmail').value = data.contactEmail || '';
     document.getElementById('contactPhone').value = data.contactPhone || '';
 

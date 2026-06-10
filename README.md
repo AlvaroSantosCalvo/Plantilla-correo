@@ -106,7 +106,6 @@ Debería ver: `Server is Running on http://localhost:5000`
 
 - 📅 **Fecha y hora**
 - 📍 **Lugar** (venue, ciudad, país)
-- 🔗 **Links** (registro, zoom)
 - 🎤 **Speakers** (conferencistas)
 -  **Descripción**
 

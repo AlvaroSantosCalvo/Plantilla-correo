@@ -32,7 +32,6 @@ async function handleFormSubmit(e) {
         country: document.getElementById('country').value.trim(),
         address: document.getElementById('address').value.trim(),
         registrationLink: document.getElementById('registrationLink').value.trim(),
-        zoomLink: document.getElementById('zoomLink').value.trim(),
         speaker1Name: document.getElementById('speaker1Name').value.trim(),
         speaker1Association: document.getElementById('speaker1Association').value.trim(),
         speaker1Photo: document.getElementById('speaker1Photo').value.trim(),
@@ -104,7 +103,6 @@ function populateForm(data) {
     document.getElementById('country').value = data.country || '';
     document.getElementById('address').value = data.address || '';
     document.getElementById('registrationLink').value = data.registrationLink || '';
-    /* document.getElementById('zoomLink').value = data.zoomLink || ''; */
     
     // Poblar speakers
     document.getElementById('speaker1Name').value = data.speaker1Name || '';

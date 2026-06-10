@@ -268,11 +268,6 @@ function generateInvitationHtml(recipientName, personalMessage, event) {
             <strong>Email de Contacto:</strong> ${event.contactEmail}
           </p>
           ${event.contactPhone ? `<p style="margin: 10px 0;"><strong>Teléfono:</strong> ${event.contactPhone}</p>` : ""}
-          ${event.zoomLink ? `
-          <p style="margin: 10px 0;">
-            <strong>🔗 Link de Streaming:</strong> <a href="${event.zoomLink}" style="color: #c2002f;">Acceder</a>
-          </p>
-          ` : ""}
         </div>
         
         <div style="margin-top: 20px; text-align: center; color: #999; font-size: 11px; border-top: 1px solid #e0e0e0; padding-top: 20px;">

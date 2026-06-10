@@ -36,7 +36,7 @@ app.post("/api/event", (req, res) => {
 
   // Validar campos obligatorios
   if (!eventName || !eventDate || !eventTime || !venue || !city || !contactEmail || !eventLemma || !academicYear || !speaker1Name || !speaker1Association || !speaker2Name || !speaker2Association) {
-    return res.status(400).json({ error: "Missing required fields" });
+    return res.status(400).json({ error: "Faltan campos obligatorios" });
   }
 
   // Guardar datos del evento
@@ -45,7 +45,7 @@ app.post("/api/event", (req, res) => {
   console.log("Event data saved:", eventName, eventDate);
   res.status(200).json({ 
     success: true, 
-    message: "Event data saved successfully",
+    message: "Datos del evento guardados",
     event: eventData 
   });
 });
@@ -53,7 +53,7 @@ app.post("/api/event", (req, res) => {
 // Endpoint para obtener datos del evento
 app.get("/api/event", (req, res) => {
   if (!eventData) {
-    return res.status(404).json({ error: "No event data found" });
+    return res.status(404).json({ error: "No se han guardado datos del evento" });
   }
 
   res.status(200).json(eventData);
@@ -64,7 +64,7 @@ app.post("/api/send-invitation", (req, res) => {
   const { recipientName, recipientEmail, subject, message: personalMessage, eventData: event } = req.body;
 
   if (!recipientName || !recipientEmail || !subject || !event) {
-    return res.status(400).json({ error: "Missing required fields" });
+    return res.status(400).json({ error: "Faltan campos obligatorios" });
   }
 
   // Generar HTML del email
@@ -79,14 +79,14 @@ app.post("/api/send-invitation", (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Error sending invitation to " + recipientEmail + ":", error);
-      return res.status(500).json({ error: "Failed to send invitation email" });
+      console.error("Error enviando email a " + recipientEmail + ":", error);
+      return res.status(500).json({ error: "Fallo al enviar el email de invitación" });
     }
 
-    console.log("Invitation email sent to:", recipientEmail);
+    console.log("Email de invitación enviado a:", recipientEmail);
     res.status(200).json({ 
       success: true, 
-      message: `Invitation sent to ${recipientEmail}` 
+      message: `Invitación enviada a ${recipientEmail}` 
     });
   });
 });
@@ -96,10 +96,10 @@ function generateInvitationHtml(recipientName, personalMessage, event) {
   try {
     // Ruta a la plantilla
     const templatePath = path.join(__dirname, '..', 'templates', 'email-template.html');
-    console.log("Reading template from:", templatePath);
+    console.log("Leyendo template de:", templatePath);
     
     let template = fs.readFileSync(templatePath, 'utf-8');
-    console.log("Template loaded successfully, length:", template.length);
+    console.log("Template cargado exitosamente, longitud:", template.length);
 
     // Formatear fecha y hora
     const dateObj = new Date(`${event.eventDate}T${event.eventTime}`);
@@ -152,10 +152,10 @@ function generateInvitationHtml(recipientName, personalMessage, event) {
       .replace(/{{register_link}}/g, `<a href="${event.registrationLink}" style="color: #c2002f; text-decoration: none;">este enlace</a>` || "")
       .replace(/{{register_deadline}}/g, registerDeadline || "");
 
-    console.log("HTML generated successfully, length:", html.length);
+    console.log("HTML generado, longitud:", html.length);
     return html;
   } catch (error) {
-    console.error("Error reading template:", error);
+    console.error("Error leyendo template:", error);
     console.error("Stack trace:", error.stack);
     
     // Fallback: return simple HTML if template not found
