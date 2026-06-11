@@ -1,0 +1,6 @@
+header-img: https://res.cloudinary.com/dggqpavix/image/upload/v1781164896/header-img_x66txa.png
+logo-nebrija-innova: https://res.cloudinary.com/dggqpavix/image/upload/v1781164894/logo-nebrija-innova_xpdcoy.png
+logo-universidad-nebrija: https://res.cloudinary.com/dggqpavix/image/upload/v1781164894/logo-universidad-nebrija_ftkuip.webp
+nebriLogo: https://res.cloudinary.com/dggqpavix/image/upload/v1781164895/nebriLogo_pzbg4p.png
+orador1: https://res.cloudinary.com/dggqpavix/image/upload/v1781164895/orador1_b5eklt.jpg
+orador2: https://res.cloudinary.com/dggqpavix/image/upload/v1781164895/orador2_kymhsv.png

@@ -32,14 +32,14 @@ let eventData = null;
 
 // Endpoint para guardar/actualizar datos del evento
 app.post("/api/event", (req, res) => {
-  const { eventName, eventDate, eventTime, venue, city, contactEmail, eventLemma, academicYear, speaker1Name, speaker1Association, speaker2Name, speaker2Association, ...otherData } = req.body;
+  const { eventName, eventDate, eventTime, venue, city, eventLemma, academicYear, speaker1Name, speaker1Association, speaker2Name, speaker2Association } = req.body;
 
   // Validar campos obligatorios
-  if (!eventName || !eventDate || !eventTime || !venue || !city || !contactEmail || !eventLemma || !academicYear || !speaker1Name || !speaker1Association || !speaker2Name || !speaker2Association) {
+  if (!eventName || !eventDate || !eventTime || !venue || !city || !eventLemma || !academicYear || !speaker1Name || !speaker1Association || !speaker2Name || !speaker2Association) {
     return res.status(400).json({ error: "Faltan campos obligatorios" });
   }
 
-  // Guardar datos del evento
+  // Guardar datos del evento (aceptar todos los campos del request)
   eventData = req.body;
 
   console.log("Event data saved:", eventName, eventDate);
