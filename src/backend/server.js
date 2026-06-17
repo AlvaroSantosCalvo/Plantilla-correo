@@ -18,12 +18,12 @@ const PORT = 5000 || process.env.PORT;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Nodemailer Transporterr Configuration
+// Configuración de Transportador Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "gmail", // Replace with your email provider (ej, Outlook, Yahoo)
+  service: "gmail", // Reemplaza con tu proveedor de correo (ej, Outlook, Gmail, etc.)
   auth: {
-    user: process.env.EMAIL_USER, // Your email
-    pass: process.env.EMAIL_PASS, // Your app-specific password
+    user: process.env.EMAIL_USER, // Tu correo
+    pass: process.env.EMAIL_PASS, // Tu contraseña específica de aplicación
   },
 });
 
@@ -158,7 +158,7 @@ function generateInvitationHtml(recipientName, personalMessage, event) {
     console.error("Error leyendo template:", error);
     console.error("Stack trace:", error.stack);
     
-    // Fallback: return simple HTML if template not found
+    // Alternativa: retornar HTML simple si no se encuentra la plantilla
     return `
       <!DOCTYPE html>
       <html lang="es">

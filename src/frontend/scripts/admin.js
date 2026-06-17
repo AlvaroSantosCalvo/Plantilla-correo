@@ -25,7 +25,6 @@ async function handleFormSubmit(e) {
         eventDescription: document.getElementById('eventDescription').value.trim(),
         eventDate: document.getElementById('eventDate').value,
         eventTime: document.getElementById('eventTime').value,
-        eventDuration: document.getElementById('eventDuration').value || 0,
         registrationDeadline: document.getElementById('registrationDeadline').value,
         venue: document.getElementById('venue').value.trim(),
         city: document.getElementById('city').value.trim(),
@@ -96,7 +95,6 @@ function populateForm(data) {
     document.getElementById('eventDescription').value = data.eventDescription || '';
     document.getElementById('eventDate').value = data.eventDate || '';
     document.getElementById('eventTime').value = data.eventTime || '';
-    document.getElementById('eventDuration').value = data.eventDuration || '';
     document.getElementById('registrationDeadline').value = data.registrationDeadline || '';
     document.getElementById('venue').value = data.venue || '';
     document.getElementById('city').value = data.city || '';
@@ -118,6 +116,9 @@ function showMessage(text, type) {
     const messageEl = document.getElementById('message');
     messageEl.textContent = text;
     messageEl.className = `message ${type}`;
+
+    // Scroll automático al mensaje
+    messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     // Auto-desaparecer después de 5 segundos
     setTimeout(() => {

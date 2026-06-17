@@ -31,7 +31,7 @@ function loadEventData() {
     if (saved) {
         eventData = JSON.parse(saved);
         displayEventSummary();
-        document.getElementById('emailSubject').value = `¡Estamos felices de invitarte al ${eventData.eventName}!`;
+    
     } else {
         showMessage('⚠️ No hay datos de evento. Por favor, ve al panel administrativo primero.', 'error');
         document.getElementById('sendBtn').disabled = true;
@@ -171,10 +171,7 @@ function showPreview() {
         return;
     }
 
-    const subject = document.getElementById('emailSubject').value;
-    const personalMessage = document.getElementById('emailMessage').value;
-
-    const previewHtml = generateEmailHtml(recipients[0].name, subject, personalMessage);
+    const previewHtml = generateEmailHtml(recipients[0].name);
     document.getElementById('previewContent').innerHTML = previewHtml;
     document.getElementById('previewModal').classList.add('show');
 }
@@ -185,7 +182,7 @@ function closePreview() {
 }
 
 // Generar HTML del email
-function generateEmailHtml(name, subject, personalMessage) {
+function generateEmailHtml(name) {
     const dateObj = new Date(`${eventData.eventDate}T${eventData.eventTime}`);
     const dateFormatted = dateObj.toLocaleDateString('es-ES', {
         weekday: 'long',
@@ -290,14 +287,6 @@ async function sendInvitations() {
         return;
     }
 
-    const subject = document.getElementById('emailSubject').value.trim();
-    if (!subject) {
-        showMessage('Por favor ingresa un asunto para el email', 'error');
-        return;
-    }
-
-    const personalMessage = document.getElementById('emailMessage').value.trim();
-
     // Mostrar loading
     document.getElementById('loading').style.display = 'block';
     document.getElementById('sendBtn').disabled = true;
@@ -319,8 +308,7 @@ async function sendInvitations() {
                     body: JSON.stringify({
                         recipientName: recipient.name,
                         recipientEmail: recipient.email,
-                        subject: subject,
-                        message: personalMessage,
+                        subject: `¡Te invitamos a ${eventData.eventName}!`,
                         eventData: eventData
                     })
                 });
@@ -351,7 +339,6 @@ async function sendInvitations() {
             if (results.failed.length === 0) {
                 recipients = [];
                 updateRecipientsList();
-                document.getElementById('emailMessage').value = '';
             }
         } else {
             showMessage('❌ No se pudieron enviar las invitaciones', 'error');
@@ -369,6 +356,9 @@ function showMessage(text, type) {
     const messageEl = document.getElementById('message');
     messageEl.textContent = text;
     messageEl.className = `message ${type}`;
+
+    // Scroll automático al mensaje
+    messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     // Auto-desaparecer
     setTimeout(() => {

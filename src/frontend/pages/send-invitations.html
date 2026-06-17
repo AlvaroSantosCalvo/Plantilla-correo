@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enviar Invitaciones - Evento</title>
+    <link rel="icon" type="image/png" href="../assets/nebriLogo.png">
     <link rel="stylesheet" href="../styles/navbar.css">
     <style>
         * {
@@ -52,7 +53,7 @@
 
         .two-column {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-bottom: 30px;
         }
@@ -411,7 +412,6 @@
                 <li class="navbar-item"><a href="index.html" class="navbar-link">Inicio</a></li>
                 <li class="navbar-item"><a href="admin.html" class="navbar-link">Panel Admin</a></li>
                 <li class="navbar-item"><a href="send-invitations.html" class="navbar-link">Enviar Invitaciones</a></li>
-                <li class="navbar-item"><a href="../../../test-email.html" class="navbar-link">Test Email</a></li>
             </ul>
         </div>
     </nav>
@@ -422,8 +422,6 @@
         </div>
 
         <div class="content">
-            <div id="message" class="message"></div>
-
             <div class="warning-box">
                 ⚠️ Asegúrate de haber guardado los datos del evento en el panel administrativo antes de enviar invitaciones.
             </div>
@@ -438,18 +436,7 @@
                         </div>
                     </div>
 
-                    <div class="form-section">
-                        <h3>📝 Personalizar Mensaje</h3>
-                        <label for="emailSubject">Asunto del Email *</label>
-                        <input type="text" id="emailSubject" placeholder="Ej: ¡Te invitamos al Summit 2026!">
 
-                        <label for="emailMessage">Mensaje Personalizado</label>
-                        <textarea id="emailMessage" placeholder="Escribe un mensaje personalizado..."></textarea>
-
-                        <div class="info-box">
-                            💡 El mensaje se agregará después de los detalles del evento.
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Columna Derecha: Gestión de Destinatarios -->
@@ -478,6 +465,7 @@
                 </div>
             </div>
 
+            <div id="message" class="message"></div>
             <div class="button-group">
                 <button type="button" class="btn btn-preview" id="previewBtn">👁️ Vista Previa</button>
                 <button type="button" class="btn btn-send" id="sendBtn">📨 Enviar Invitaciones</button>

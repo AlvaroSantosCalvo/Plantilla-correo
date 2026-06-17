@@ -1,4 +1,4 @@
-// Simple navbar toggle for mobile
+// Alternancia simple de barra de navegación para móvil
 function initNavbar() {
   const toggle = document.getElementById('navbarToggle');
   const menu = document.getElementById('navbarMenu');
@@ -8,7 +8,7 @@ function initNavbar() {
     menu.classList.toggle('active');
   });
 
-  // Mark active link
+  // Marcar enlace activo
   const links = document.querySelectorAll('.navbar-link');
   links.forEach(link => {
     if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {

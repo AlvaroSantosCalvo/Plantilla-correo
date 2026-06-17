@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel Administrativo - Evento</title>
+    <link rel="icon" type="image/png" href="../assets/nebriLogo.png">
     <link rel="stylesheet" href="../styles/navbar.css">
     <style>
         * {
@@ -266,7 +267,6 @@
                 <li class="navbar-item"><a href="index.html" class="navbar-link">Inicio</a></li>
                 <li class="navbar-item"><a href="admin.html" class="navbar-link">Panel Admin</a></li>
                 <li class="navbar-item"><a href="send-invitations.html" class="navbar-link">Enviar Invitaciones</a></li>
-                <li class="navbar-item"><a href="../../../test-email.html" class="navbar-link">Test Email</a></li>
             </ul>
         </div>
     </nav>
@@ -277,8 +277,6 @@
         </div>
 
         <div class="content">
-            <div id="message" class="message"></div>
-
             <div class="info-box">
                 💡 Completa este formulario con los datos del evento. Los datos se guardarán y se usarán en las invitaciones que envíes.
             </div>
@@ -308,11 +306,6 @@
                     <input type="text" id="academicYear" name="academicYear" placeholder="Ej: 2025-2026" required>
                 </div>
 
-                <div class="form-group full">
-                    <label for="eventDescription">Descripción Adicional del Evento</label>
-                    <textarea id="eventDescription" name="eventDescription" placeholder="Información adicional sobre el evento..."></textarea>
-                </div>
-
                 <!-- Detalles de Fecha y Hora -->
                 <div class="divider"></div>
                 <h3>📅 Fecha y Hora</h3>
@@ -329,10 +322,6 @@
                 </div>
 
                 <div class="form-group">
-                    <div>
-                        <label for="eventDuration">Duración (en minutos)</label>
-                        <input type="number" id="eventDuration" name="eventDuration" placeholder="Ej: 120" min="0">
-                    </div>
                     <div>
                         <label for="registrationDeadline">Fecha Límite de Registro</label>
                         <input type="date" id="registrationDeadline" name="registrationDeadline">
@@ -379,12 +368,12 @@
 
                 <div class="form-group full">
                     <label for="speaker1Name">Nombre del Primer Orador/a *</label>
-                    <input type="text" id="speaker1Name" name="speaker1Name" placeholder="Ej: Carlos Magro" required>
+                    <input type="text" id="speaker1Name" name="speaker1Name" placeholder="Nombre del primer orador" required>
                 </div>
 
                 <div class="form-group full">
                     <label for="speaker1Association">Asociación/Institución del Primer Orador/a *</label>
-                    <input type="text" id="speaker1Association" name="speaker1Association" placeholder="Ej: Asociación Educación Abierta" required>
+                    <input type="text" id="speaker1Association" name="speaker1Association" placeholder="Asociación o institución del primer orador" required>
                 </div>
 
                 <div class="form-group full">
@@ -396,12 +385,12 @@
 
                 <div class="form-group full">
                     <label for="speaker2Name">Nombre del Segundo Orador/a *</label>
-                    <input type="text" id="speaker2Name" name="speaker2Name" placeholder="Ej: Maribell Reyes Millán" required>
+                    <input type="text" id="speaker2Name" name="speaker2Name" placeholder="Nombre del segundo orador" required>
                 </div>
 
                 <div class="form-group full">
                     <label for="speaker2Association">Asociación/Institución del Segundo Orador/a *</label>
-                    <input type="text" id="speaker2Association" name="speaker2Association" placeholder="Ej: Tecnológico de Monterrey" required>
+                    <input type="text" id="speaker2Association" name="speaker2Association" placeholder="Asociación o institución del segundo orador" required>
                 </div>
 
                 <div class="form-group full">
@@ -410,6 +399,7 @@
                 </div>
 
                 <!-- Botones de Acción -->
+                <div id="message" class="message"></div>
                 <div class="button-group">
                     <button type="submit" class="btn btn-save">💾 Guardar Datos del Evento</button>
                     <button type="reset" class="btn btn-reset">🔄 Limpiar Formulario</button>

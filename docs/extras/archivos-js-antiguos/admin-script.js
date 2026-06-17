@@ -57,7 +57,6 @@ async function handleFormSubmit(e) {
         eventDescription: document.getElementById('eventDescription').value.trim(),
         eventDate: document.getElementById('eventDate').value,
         eventTime: document.getElementById('eventTime').value,
-        eventDuration: document.getElementById('eventDuration').value || 0,
         registrationDeadline: document.getElementById('registrationDeadline').value,
         venue: document.getElementById('venue').value.trim(),
         city: document.getElementById('city').value.trim(),

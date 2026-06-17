@@ -1,4 +1,4 @@
-/* Navbar Styles */
+/* Estilos de Barra de Navegación */
 .navbar {
   background: linear-gradient(135deg, #c2002f 0%, #a00026 100%);
   padding: 0;
@@ -86,7 +86,7 @@ body {
   padding: 5px 10px;
 }
 
-/* Mobile Responsive */
+/* Responsivo para Móviles */
 @media (max-width: 768px) {
   .navbar-toggle {
     display: block;
